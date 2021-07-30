@@ -185,7 +185,10 @@ void NeighborListGPU::filterNlist()
 //! Update the exclusion list on the GPU
 void NeighborListGPU::updateExListIdx()
     {
-    assert(!m_need_reallocate_exlist);
+    // At the moment this is the only reference to this variable in the project.
+    // This causes the compilation to fail in the "Debug" configuration,
+    // So I think it should be commented out for now:
+    // assert(!m_need_reallocate_exlist);
 
     if (m_prof)
         m_prof->push(m_exec_conf, "update-ex");
